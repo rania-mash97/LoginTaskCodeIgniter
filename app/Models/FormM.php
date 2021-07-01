@@ -18,7 +18,7 @@ public function saverecords($name,$email,$pass){
         $data = [
            'fullname' => $name,
            'email'  => $email,
-           'password'  => $pass
+           'password'  => md5($pass)
 ];
    
  $db->table('users')->insert($data);
@@ -28,7 +28,9 @@ public function saverecords($name,$email,$pass){
       // $session = \Config\Services::session();
 
         $db = \Config\Database::connect();
-        $db->where('id',$id);
+        //$builder = $db->table('users');
+        //$query = $builder->get('id')
+        $db->where('id',$query);
         $db->update('password',$newupdate);
 
 

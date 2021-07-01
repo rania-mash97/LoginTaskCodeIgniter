@@ -20,6 +20,7 @@ class Home extends BaseController
 
     $name = $_POST['username'];
     $email = $_POST['email'];
+    $pass1 = $_POST['password'];
     $model = new FormM();
     if (isset($_POST['submit'])) {
 
@@ -27,12 +28,28 @@ class Home extends BaseController
 
         $_SESSION["username"] = $name;
         $_SESSION["email"] = $email;
-        $pass1 = $_POST['password'];
+          //$_SESSION['id']=$id;
+
+        
+        //print_r($name);
+        //print_r($id);
+
+
+      // $validation =  \Config\Services::validation();
+      //  $validation->setRules([
+    //'username' => "wrongname", "alpha", // is not ok
+   // 'email' => "this is not a valid email","valid_email",  // is not ok
+    //'password' => "this is wrong password", "integer",  
+///]);
+       
+       // $validation->setRules("email","this is not a valid email","valid_email");
+       // $validation->setRules("password","this is wrong password","integer");
+    
         $model->saverecords($name, $email, $pass1);
 
         $to = $email;
         $subject = 'Account acctivation';
-        $message = 'hi<br><br> Hello your account created successfully.Please click link below to activate it<br> ' . '<a href="http://localhost/mypro/public/index.php/Secondframe"">click me</a>';
+        $message = 'hi<br><br> Hello your account created successfully.Please click link below to activate it<br> ' . '<a href="http://localhost/LoginTaskCodeIgniter/public/index.php/Secondframe"">click me</a>';
 
         $email = \Config\Services::email();
 

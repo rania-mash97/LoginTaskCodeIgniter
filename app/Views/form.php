@@ -33,7 +33,7 @@
     <div style="
     display: block;
     text-align: center; margin-top: 200px; width:100%;">
-
+       
         <form role="form" action="Home/storee" method="POST">
 
             <p class="text-uppercase pull-center"> SIGN UP.</p>
